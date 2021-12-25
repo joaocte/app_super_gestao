@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{PrincipalController, SobreNosController, ContatoController};
+use App\Http\Controllers\{PrincipalController, 
+    SobreNosController,
+     ContatoController,
+    TesteController};
 
 /*
 |--------------------------------------------------------------------------
@@ -24,17 +27,11 @@ Route::prefix('/app')->group(function(){
 });
 
 
-Route::get('rota1', function(){
-    return 'Rota1';
-})->name('site.rota1');
-Route::get('rota2', function(){
-     return redirect()->route('site.rota1');
-})->name('site.rota2');
+Route::get('teste/{p1}/{p2}',[TesteController::class, 'Teste'])->name('teste');
+
 
 Route::fallback(function(){
-
     echo 'Rota não encontrada <a href="'.route('site.index').'">clique aqui</a> para voltar a pagina inicial';
-
 });
 
 // Route::redirect('rota2', 'rota1');
