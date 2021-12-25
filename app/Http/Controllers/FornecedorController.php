@@ -14,7 +14,7 @@ class FornecedorController extends Controller
                 'nome' => 'Fornecedor 1',
                 'status' => 'N',
                 'cnpj' => '0',
-                'ddd' => '', //São Paulo (SP)
+                'ddd' => '11', //São Paulo (SP)
                 'telefone' => '0000-0000'
             ],
             1 => [
