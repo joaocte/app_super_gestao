@@ -171,3 +171,22 @@ Telefone: ({{ $fornecedor['ddd'] ?? '' }}) {{ $fornecedor['telefone'] ?? '' }}
     @endforelse
 
     @endisset
+
+
+    <h3>forelse</h3>
+    @isset($fornecedores)
+    @forelse ($fornecedores as $fornecedor)
+    
+        Fornecedor: @{{ $fornecedor['nome'] }}
+        <br>
+        Status: @{{ $fornecedor['status'] }}
+        <br>
+        CNPJ: @{{ $fornecedor['cnpj'] ?? '' }}
+        <br>
+        Telefone: (@{{ $fornecedor['ddd'] ?? '' }}) @{{ $fornecedor['telefone'] ?? '' }}
+        <hr>
+        @empty
+        "Array vazio"
+        @endforelse
+    
+        @endisset
