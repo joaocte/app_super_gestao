@@ -22,7 +22,8 @@
 @endphp
 
 {{-- @unless executa se o retorno for false --}}
-
+<hr>
+<h3>if else</h3>
 Fornecedor: {{ $fornecedores[0]['nome'] }}
 <br>
 Status: {{ $fornecedores[0]['status'] }}
@@ -36,6 +37,8 @@ Status: {{ $fornecedores[0]['status'] }}
 @endunless
 <br>
 
+<hr>
+<h3>isset</h3>
 
 @isset($fornecedores)
     Fornecedor: {{ $fornecedores[0]['nome'] }}
@@ -46,6 +49,8 @@ Status: {{ $fornecedores[0]['status'] }}
         CNPJ: {{ $fornecedores[0]['cnpj'] }}
     @endisset
 @endisset
+<hr>
+<h3>empty</h3>
 
 @isset($fornecedores)
     Fornecedor: {{ $fornecedores[0]['nome'] }}
@@ -60,6 +65,8 @@ Status: {{ $fornecedores[0]['status'] }}
     @endisset
 @endisset
 
+<hr>
+<h3>switch</h3>
 @isset($fornecedores)
     Fornecedor: {{ $fornecedores[1]['nome'] }}
     <br>
@@ -89,6 +96,8 @@ Status: {{ $fornecedores[0]['status'] }}
 @endisset
 
 @isset($fornecedores)
+    <hr>
+    <h3>for</h3>
     @for($i = 0; isset($fornecedores[$i]); $i++)
         Fornecedor: {{ $fornecedores[$i]['nome'] }}
         <br>
@@ -114,3 +123,33 @@ Status: {{ $fornecedores[0]['status'] }}
 
     @endfor
 @endisset
+<h3>while</h3>
+@isset($fornecedores)
+@php $i = 0 @endphp
+    @while(isset($fornecedores[$i]))
+        Fornecedor: {{ $fornecedores[$i]['nome'] }}
+        <br>
+        Status: {{ $fornecedores[$i]['status'] }}
+        <br>
+        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? '' }}
+        <br>
+        Telefone: ({{ $fornecedores[$i]['ddd'] ?? '' }}) {{ $fornecedores[$i]['telefone'] ?? '' }}
+        <hr>
+        @php $i++ @endphp
+    @endwhile
+    @endisset
+    <h3>foreach</h3>
+    @isset($fornecedores)
+    @foreach ($fornecedores as $fornecedor)
+        
+            Fornecedor: {{ $fornecedor['nome'] }}
+            <br>
+            Status: {{ $fornecedor['status'] }}
+            <br>
+            CNPJ: {{ $fornecedor['cnpj'] ?? '' }}
+            <br>
+            Telefone: ({{ $fornecedor['ddd'] ?? '' }}) {{ $fornecedor['telefone'] ?? '' }}
+            <hr>
+            @endforeach
+
+            @endisset
