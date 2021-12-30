@@ -19,6 +19,7 @@ use App\Http\Controllers\{PrincipalController,
 */
 Route::get('/', [PrincipalController::class, 'Principal'])->name('site.index');
 Route::get('/contato', [ContatoController::class, 'Contato'])->name('site.contato');
+Route::post('/contato', [ContatoController::class, 'Contato'])->name('site.contato');
 Route::get('/sobre-nos', [SobreNosController::class, 'SobreNos'])->name('site.sobrenos');
 Route::get('/login', function(){return 'Login';})->name('site.login');
 Route::prefix('/app')->group(function(){
