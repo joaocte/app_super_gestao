@@ -15,7 +15,6 @@ class AlterFornecedorsAlteracaoNomeNovasColunas extends Migration
     public function up()
     {
         Schema::table('fornecedors', function(Blueprint $table){
-            $table->rename('fornecedores');
             $table->string('uf',2);
             $table->string('email',150);
 
@@ -29,8 +28,7 @@ class AlterFornecedorsAlteracaoNomeNovasColunas extends Migration
      */
     public function down()
     {
-        Schema::table('fornecedores', function(Blueprint $table){
-            $table->rename('fornecedors');
+        Schema::table('fornecedors', function(Blueprint $table){
             $table->dropColumn('uf');
             $table->dropColumn('email');
             //$table->dropColumn(['uf', 'email']);
