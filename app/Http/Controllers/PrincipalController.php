@@ -8,7 +8,12 @@ class PrincipalController extends Controller
 {
     public function Principal(){
 
-        return view('site.principal');
+        $motivo_contatos = [
+            '1' => 'Dúvidas',
+            '2' => 'Elogio',
+            '3' => 'Reclamacão'
+        ];
+        return view('site.principal', ['motivo_contatos'=> $motivo_contatos]);
 
     }
 }
